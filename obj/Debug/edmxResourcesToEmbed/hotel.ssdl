@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище hotelModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookingRoom">
+    <Key>
+      <PropertyRef Name="ID_Booking" />
+    </Key>
+    <Property Name="ID_Booking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client_ID" Type="int" Nullable="false" />
+    <Property Name="Room_ID" Type="int" Nullable="false" />
+    <Property Name="CheckinDate" Type="date" Nullable="false" />
+    <Property Name="CheckoutDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Client" />
+    </Key>
+    <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Middlename" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Number" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="DateofBirth" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="ID_Room" />
+    </Key>
+    <Property Name="ID_Room" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeRoom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PriceRoom" Type="int" Nullable="false" />
+    <Property Name="AvailabilityRoom" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "hotel.dbo.ViewBookingRoom" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ViewBookingRoom">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Номер" />
+      <PropertyRef Name="Дата въезда" />
+      <PropertyRef Name="Дата выезда" />
+    </Key>
+    <Property Name="Фамилия" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="100" />
+    <Property Name="Номер" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Дата въезда" Type="date" Nullable="false" />
+    <Property Name="Дата выезда" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "hotel.dbo.ViewBookingRoomDS" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ViewBookingRoomDS">
+    <Key>
+      <PropertyRef Name="number" />
+      <PropertyRef Name="dtincheck" />
+      <PropertyRef Name="dtoutncheck" />
+    </Key>
+    <Property Name="fio" Type="varchar" MaxLength="104" />
+    <Property Name="number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dtincheck" Type="date" Nullable="false" />
+    <Property Name="dtoutncheck" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "hotel.dbo.ViewClients" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ViewClients">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Почта" />
+      <PropertyRef Name="Номер" />
+      <PropertyRef Name="Дата рождения" />
+    </Key>
+    <Property Name="Фамилия" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Имя" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Отчество" Type="varchar" MaxLength="100" />
+    <Property Name="Почта" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Номер" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Дата рождения" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "hotel.dbo.ViewRooms" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ViewRooms">
+    <Key>
+      <PropertyRef Name="Тип номера" />
+      <PropertyRef Name="Цена" />
+      <PropertyRef Name="Доступность" />
+    </Key>
+    <Property Name="Тип номера" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Цена" Type="int" Nullable="false" />
+    <Property Name="Доступность" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__BookingRo__Clien__4F7CD00D">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="BookingRoom" Type="Self.BookingRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="BookingRoom">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingRo__Room___5070F446">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+    <End Role="BookingRoom" Type="Self.BookingRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="ID_Room" />
+      </Principal>
+      <Dependent Role="BookingRoom">
+        <PropertyRef Name="Room_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище hotelModelContainer">
+    <EntitySet Name="BookingRoom" EntityType="Self.BookingRoom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewBookingRoom" EntityType="Self.ViewBookingRoom" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewBookingRoom].[Фамилия] AS [Фамилия], 
+    [ViewBookingRoom].[Имя] AS [Имя], 
+    [ViewBookingRoom].[Отчество] AS [Отчество], 
+    [ViewBookingRoom].[Номер] AS [Номер], 
+    [ViewBookingRoom].[Дата въезда] AS [Дата въезда], 
+    [ViewBookingRoom].[Дата выезда] AS [Дата выезда]
+    FROM [dbo].[ViewBookingRoom] AS [ViewBookingRoom]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewBookingRoomDS" EntityType="Self.ViewBookingRoomDS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewBookingRoomDS].[fio] AS [fio], 
+    [ViewBookingRoomDS].[number] AS [number], 
+    [ViewBookingRoomDS].[dtincheck] AS [dtincheck], 
+    [ViewBookingRoomDS].[dtoutncheck] AS [dtoutncheck]
+    FROM [dbo].[ViewBookingRoomDS] AS [ViewBookingRoomDS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewClients" EntityType="Self.ViewClients" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewClients].[Фамилия] AS [Фамилия], 
+    [ViewClients].[Имя] AS [Имя], 
+    [ViewClients].[Отчество] AS [Отчество], 
+    [ViewClients].[Почта] AS [Почта], 
+    [ViewClients].[Номер] AS [Номер], 
+    [ViewClients].[Дата рождения] AS [Дата рождения]
+    FROM [dbo].[ViewClients] AS [ViewClients]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewRooms" EntityType="Self.ViewRooms" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewRooms].[Тип номера] AS [Тип номера], 
+    [ViewRooms].[Цена] AS [Цена], 
+    [ViewRooms].[Доступность] AS [Доступность]
+    FROM [dbo].[ViewRooms] AS [ViewRooms]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__BookingRo__Clien__4F7CD00D" Association="Self.FK__BookingRo__Clien__4F7CD00D">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="BookingRoom" EntitySet="BookingRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingRo__Room___5070F446" Association="Self.FK__BookingRo__Room___5070F446">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="BookingRoom" EntitySet="BookingRoom" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

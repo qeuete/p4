@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BookingRoom">
+    <Key>
+      <PropertyRef Name="ID_Booking" />
+    </Key>
+    <Property Name="ID_Booking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="Room_ID" Type="Int32" Nullable="false" />
+    <Property Name="CheckinDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CheckoutDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__BookingRo__Clien__3D5E1FD2" FromRole="BookingRoom" ToRole="Clients" />
+    <NavigationProperty Name="Rooms" Relationship="Self.FK__BookingRo__Room___3E52440B" FromRole="BookingRoom" ToRole="Rooms" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Client" />
+    </Key>
+    <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Middlename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Number" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateofBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="BookingRoom" Relationship="Self.FK__BookingRo__Clien__3D5E1FD2" FromRole="Clients" ToRole="BookingRoom" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="ID_Room" />
+    </Key>
+    <Property Name="ID_Room" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeRoom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PriceRoom" Type="Int32" Nullable="false" />
+    <Property Name="AvailabilityRoom" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BookingRoom" Relationship="Self.FK__BookingRo__Room___3E52440B" FromRole="Rooms" ToRole="BookingRoom" />
+  </EntityType>
+  <Association Name="FK__BookingRo__Clien__3D5E1FD2">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="BookingRoom" Type="Self.BookingRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="BookingRoom">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingRo__Room___3E52440B">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+    <End Role="BookingRoom" Type="Self.BookingRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="ID_Room" />
+      </Principal>
+      <Dependent Role="BookingRoom">
+        <PropertyRef Name="Room_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hotelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BookingRoom" EntityType="Self.BookingRoom" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+    <AssociationSet Name="FK__BookingRo__Clien__3D5E1FD2" Association="Self.FK__BookingRo__Clien__3D5E1FD2">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="BookingRoom" EntitySet="BookingRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingRo__Room___3E52440B" Association="Self.FK__BookingRo__Room___3E52440B">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="BookingRoom" EntitySet="BookingRoom" />
+    </AssociationSet>
+    <EntitySet Name="ViewBookingRoom" EntityType="hotelModel.ViewBookingRoom" />
+    <EntitySet Name="ViewBookingRoomDS" EntityType="hotelModel.ViewBookingRoomDS" />
+    <EntitySet Name="ViewClients" EntityType="hotelModel.ViewClients" />
+    <EntitySet Name="ViewRooms" EntityType="hotelModel.ViewRooms" />
+  </EntityContainer>
+  <EntityType Name="ViewBookingRoom">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Номер" />
+      <PropertyRef Name="Дата_въезда" />
+      <PropertyRef Name="Дата_выезда" />
+    </Key>
+    <Property Name="Фамилия" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Имя" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Отчество" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Номер" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Дата_въезда" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Дата_выезда" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ViewBookingRoomDS">
+    <Key>
+      <PropertyRef Name="number" />
+      <PropertyRef Name="dtincheck" />
+      <PropertyRef Name="dtoutncheck" />
+    </Key>
+    <Property Name="fio" Type="String" MaxLength="104" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dtincheck" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="dtoutncheck" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ViewClients">
+    <Key>
+      <PropertyRef Name="Фамилия" />
+      <PropertyRef Name="Имя" />
+      <PropertyRef Name="Почта" />
+      <PropertyRef Name="Номер" />
+      <PropertyRef Name="Дата_рождения" />
+    </Key>
+    <Property Name="Фамилия" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Имя" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Отчество" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Почта" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Номер" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Дата_рождения" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="ViewRooms">
+    <Key>
+      <PropertyRef Name="Тип_номера" />
+      <PropertyRef Name="Цена" />
+      <PropertyRef Name="Доступность" />
+    </Key>
+    <Property Name="Тип_номера" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Цена" Type="Int32" Nullable="false" />
+    <Property Name="Доступность" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

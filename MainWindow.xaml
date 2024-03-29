@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Click="ClinetsTable" Grid.Column="0" Grid.Row="0" Content="Таблица клиентов" Background="#FF87D24B"/>
+        <Button Click="RoomsTable" Grid.Column="1"  Grid.Row="0" Content="Таблица номеров" Background="#FF87D24B"/>
+        <Button Click="BookingTable" Grid.Column="2"  Grid.Row="0" Content="Таблица бронирования ef" Background="#FF87D24B"/>
+        <Button Click="BookingTableDS" Grid.Column="3"  Grid.Row="0" Content="Таблица бронирования ds" Background="#FF87D24B" Height="60"/>
+        <Frame x:Name="PageFrame" Grid.Row="1" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

@@ -1,0 +1,35 @@
+﻿<Page x:Class="WpfApp1.BookingWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Бронирование">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid AutoGenerateColumns="False" x:Name="BookingView" HorizontalAlignment="Left" Grid.ColumnSpan="4" Width="400" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding fio}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding number}"/>
+                <DataGridTextColumn Header="Дата въезда" Binding="{Binding dtincheck, StringFormat={}{0:dd.MM.yyyy}}"/>
+                <DataGridTextColumn Header="Дата выезда" Binding="{Binding dtoutncheck, StringFormat={}{0:dd.MM.yyyy}}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="Searchtxt" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Height="20" VerticalAlignment="Top" Width="200" HorizontalAlignment="Right" Margin="0,39,114,0"/>
+        <Button Grid.Column="6" Click="Search_Click" Grid.Row="0" Content="Поиск" Width="100" Height="40" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="6" Click="Clear_Click"  Content="Очистка" Width="100" Height="40"  HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="BkCbx" DisplayMemberPath="fio" SelectionChanged="Cbx_SelectionChanged" HorizontalAlignment="Right" Grid.Row="0" Height="40" Grid.Column="4" Grid.ColumnSpan="3" VerticalAlignment="Top" Width="200" Margin="0,112,114,0" />
+    </Grid>
+</Page>

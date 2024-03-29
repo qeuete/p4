@@ -1,0 +1,44 @@
+﻿<Page x:Class="WpfApp1.RoomsWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Номера">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid AutoGenerateColumns="False" x:Name="RoomsView" HorizontalAlignment="Left" Grid.ColumnSpan="4" Width="400" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тип" Binding="{Binding TypeRoom}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding PriceRoom}"/>
+                <DataGridTextColumn Header="Доступность" Binding="{Binding AvailabilityRoom}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="TypeTbx" Grid.Row="1" Grid.Column="0" Width="300"/>
+        <TextBox x:Name="PriceTbx" Grid.Row="1" Width="150" Grid.Column="1"/>
+        <ComboBox x:Name="AvailabilityCbx" Grid.Row="1" Width="250" Grid.Column="2"/>
+        <Button Content="Добавить" Click="BtnAddClick" Name="BtnAdd" Grid.Row="2" HorizontalAlignment="Left" Width="250" Background="#FF87D24B" Grid.ColumnSpan="2"/>
+        <Button Content="Редактировать" Click="BtnEditClick" Name="BtnEdit" Grid.Row="2" HorizontalAlignment="Center" Width="250" Background="#FF87D24B"  Grid.ColumnSpan="6"/>
+        <Button Content="Удалить" Click="BtnDeleteClick" Name="BtnDelete"  Grid.Row="2" HorizontalAlignment="Right" Width="250"  Background="#FF87D24B" Grid.ColumnSpan="7"/>
+        <TextBox x:Name="SearchTxt" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Height="20" VerticalAlignment="Top" Width="200" HorizontalAlignment="Right" Margin="0,39,114,0"/>
+        <Button Grid.Column="6" Click="Search_Click" Grid.Row="0" Content="Поиск" Width="100" Height="40" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Column="6" Click="Clear_Click"  Content="Очистка" Width="100" Height="40"  HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="RoomsCbx" HorizontalAlignment="Right" Grid.Row="0" Height="40" Grid.Column="3" Grid.ColumnSpan="3" VerticalAlignment="Top" Width="200" Margin="0,112,114,0" DisplayMemberPath="TypeRoom" SelectionChanged="Cbx_SelectionChanged"/>
+        <Frame x:Name="PageFrame" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Page> 
+

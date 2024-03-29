@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B546559D-10FC-4E71-BBDA-5C30BF8695D4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WpfApp1</RootNamespace>
+    <AssemblyName>WpfApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AddEditPage.xaml.cs">
+      <DependentUpon>AddEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookingRoom.cs">
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookingTableDS.xaml.cs">
+      <DependentUpon>BookingTableDS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BookingWindow.xaml.cs">
+      <DependentUpon>BookingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Clients.cs">
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsWindow.xaml.cs">
+      <DependentUpon>ClientsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="hotel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hotelDataSet.cs">
+      <DependentUpon>hotelDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="hotelDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotelDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="hotelDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotelDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="hotelDataSetВDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotelDataSetВDB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms.cs">
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomsWindow.xaml.cs">
+      <DependentUpon>RoomsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBookingRoom.cs">
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBookingRoomDS.cs">
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewClients.cs">
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewRooms.cs">
+      <DependentUpon>hotel.tt</DependentUpon>
+    </Compile>
+    <Page Include="AddEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookingTableDS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BookingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ClientsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="hotel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hotel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="RoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="hotel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>hotel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="hotel.edmx.diagram">
+      <DependentUpon>hotel.edmx</DependentUpon>
+    </None>
+    <None Include="hotelDataSet.xsc">
+      <DependentUpon>hotelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>hotelDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="hotelDataSet.xss">
+      <DependentUpon>hotelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSet1.xsc">
+      <DependentUpon>hotelDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>hotelDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="hotelDataSet1.xss">
+      <DependentUpon>hotelDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSetВDB.xsc">
+      <DependentUpon>hotelDataSetВDB.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSetВDB.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hotelDataSetВDB.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hotelDataSetВDB.xss">
+      <DependentUpon>hotelDataSetВDB.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hotel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>hotel.Context.cs</LastGenOutput>
+      <DependentUpon>hotel.edmx</DependentUpon>
+    </Content>
+    <Content Include="hotel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>hotel.edmx</DependentUpon>
+      <LastGenOutput>hotel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище hotelModelContainer" CdmEntityContainer="hotelEntities">
+    <EntitySetMapping Name="BookingRoom">
+      <EntityTypeMapping TypeName="hotelModel.BookingRoom">
+        <MappingFragment StoreEntitySet="BookingRoom">
+          <ScalarProperty Name="ID_Booking" ColumnName="ID_Booking" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Room_ID" ColumnName="Room_ID" />
+          <ScalarProperty Name="CheckinDate" ColumnName="CheckinDate" />
+          <ScalarProperty Name="CheckoutDate" ColumnName="CheckoutDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="hotelModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="hotelModel.Rooms">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="ID_Room" ColumnName="ID_Room" />
+          <ScalarProperty Name="TypeRoom" ColumnName="TypeRoom" />
+          <ScalarProperty Name="PriceRoom" ColumnName="PriceRoom" />
+          <ScalarProperty Name="AvailabilityRoom" ColumnName="AvailabilityRoom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewBookingRoom">
+      <EntityTypeMapping TypeName="hotelModel.ViewBookingRoom">
+        <MappingFragment StoreEntitySet="ViewBookingRoom">
+          <ScalarProperty Name="Дата_выезда" ColumnName="Дата выезда" />
+          <ScalarProperty Name="Дата_въезда" ColumnName="Дата въезда" />
+          <ScalarProperty Name="Номер" ColumnName="Номер" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewBookingRoomDS">
+      <EntityTypeMapping TypeName="hotelModel.ViewBookingRoomDS">
+        <MappingFragment StoreEntitySet="ViewBookingRoomDS">
+          <ScalarProperty Name="dtoutncheck" ColumnName="dtoutncheck" />
+          <ScalarProperty Name="dtincheck" ColumnName="dtincheck" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="fio" ColumnName="fio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewClients">
+      <EntityTypeMapping TypeName="hotelModel.ViewClients">
+        <MappingFragment StoreEntitySet="ViewClients">
+          <ScalarProperty Name="Дата_рождения" ColumnName="Дата рождения" />
+          <ScalarProperty Name="Номер" ColumnName="Номер" />
+          <ScalarProperty Name="Почта" ColumnName="Почта" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewRooms">
+      <EntityTypeMapping TypeName="hotelModel.ViewRooms">
+        <MappingFragment StoreEntitySet="ViewRooms">
+          <ScalarProperty Name="Доступность" ColumnName="Доступность" />
+          <ScalarProperty Name="Цена" ColumnName="Цена" />
+          <ScalarProperty Name="Тип_номера" ColumnName="Тип номера" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
